@@ -1,10 +1,10 @@
 const rxjs = require('rxjs')
 module.exports = (app) => {
-    let listener$ = new rxjs.Subject()
+    let getHelloWorld$ = new rxjs.Subject()
 
-    app.get('/', (req, res) => listener$.next([req, res]))
+    app.get('/', (req, res) => getHelloWorld$.next([req, res]))
 
-    listener$
+    getHelloWorld$
     .subscribe((args) => {
             let [req, res] = args
             res.send('hello world')
